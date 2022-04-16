@@ -164,6 +164,10 @@ class KNX(SmartPlugin):
         self.init_webinterface(WebInterface)
         return
 
+    def switch_readonly(self, mode):
+        self.readonly = mode
+        self.logger.info("KNX Plugin switched readonly to {}".format(mode))        
+    
     def _parse_projectfile(self):
         self._check_projectfile_destination()
         if self.projectpath.is_file():
